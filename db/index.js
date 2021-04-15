@@ -136,6 +136,7 @@ async function getUserById(userId) {
         WHERE id=${userId}`
     );
     if (!user) return null;
+    delete user.password;
 
     const { rows } = await getPostsByUser(userId);
 
