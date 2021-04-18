@@ -1,25 +1,18 @@
 const client = require("./db-client.js");
 const getAllUsers = require("./users/getAllUsers.js");
-const createUser = require("./users/createUser.js");
 const updateUser = require("./users/updateUser.js");
-const createPost = require("./posts/createPost.js");
 const updatePost = require("./posts/updatePost.js");
 const getUserById = require("./users/getUserById.js");
-const createTags = require("./posts/tags/createTags.js");
 const getAllPosts = require("./posts/getAllPosts.js");
-const getPostsByUser = require("./posts/getPostsByUser.js");
-const addTagsToPost = require("./posts/tags/addTagsToPost.js");
 const getPostsByTagName = require("./posts/getPostsByTagName.js");
 const dropTables = require("./dropTables.js");
 const createTables = require("./createTables.js");
 const createInitialUsers = require("./createInitialUsers.js");
 const createInitialPosts = require("./createInitialPosts.js");
-const createInitialTags = require("./createInitialTags.js");
 
 async function rebuildDB() {
   try {
     client.connect();
-
     await dropTables();
     await createTables();
     await createInitialUsers();
