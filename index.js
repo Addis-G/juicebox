@@ -1,6 +1,8 @@
 const PORT = 3000;
 const client = require("./db/db-client.js");
 
+require("dotenv").config();
+
 const express = require("express");
 const server = express();
 
@@ -10,18 +12,18 @@ server.use(bodyParser.json());
 const morgan = require("morgan");
 server.use(morgan("dev"));
 
-server.use((req, res, next) => {
-  console.log("<____Body Logger START____>");
-  console.log(req.body);
-  console.log("<_____Body Logger END_____>");
+// server.use((req, res, next) => {
+//   console.log("<____Body Logger START____>");
+//   console.log(req.body);
+//   console.log("<_____Body Logger END_____>");
 
-  next();
-});
+//   next();
+// });
 
-server.get("/api", (req, res, next) => {
-  console.log("A get request was made to /api");
-  res.send({ message: "success" });
-});
+// server.get("/api", (req, res, next) => {
+//   console.log("A get request was made to /api");
+//   res.send({ message: "success" });
+// });
 
 server.use("/api", (req, res, next) => {
   console.log("A request was made to /api");
@@ -40,3 +42,4 @@ try {
 server.listen(PORT, () => {
   console.log("The server is up on port", PORT);
 });
+module.exports = server;

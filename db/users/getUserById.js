@@ -12,9 +12,9 @@ async function getUserById(userId) {
     if (!user) return null;
     delete user.password;
 
-    const { rows } = await getPostsByUser(userId);
-    user.posts = rows;
-    console.log(user);
+    const posts = await getPostsByUser(userId);
+    user.posts = posts;
+
     return user;
   } catch (error) {
     console.log(error);
