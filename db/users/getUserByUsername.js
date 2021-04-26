@@ -11,7 +11,6 @@ async function getUserByUsername(username) {
     `,
       [username]
     );
-    delete user.password;
 
     return user;
   } catch (error) {

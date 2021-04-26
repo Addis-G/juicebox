@@ -1,0 +1,4 @@
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhbGJlcnQiLCJpYXQiOjE2MTkyNzk1MDV9.s-jhhhRtaKl8ssQEzEbgpjyIdDq1xXQLIMhLpHgDadE
+
+
+curl http://localhost:3000/api/posts/1 -X PATCH -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhbGJlcnQiLCJpYXQiOjE2MTkyNzk1MDV9.s-jhhhRtaKl8ssQEzEbgpjyIdDq1xXQLIMhLpHgDadE' -H 'Content-Type: application/json' -d '{"title": "updating my old stuff", "tags": "#oldisnewagain"}'

@@ -5,7 +5,6 @@ const { JWT_SECRET } = process.env;
 async function login(req, res, next) {
   const { username, password } = req.body;
 
-  // request must have both
   if (!username || !password) {
     next({
       name: "MissingCredentialsError",
@@ -15,10 +14,8 @@ async function login(req, res, next) {
 
   try {
     const user = await getUserByUsername(username);
-    console.log(user);
-    if (user && user.password == password) {
-      // create token & return to user
 
+    if (user && user.password == password) {
       const token = jwt.sign(
         { id: user.id, username: user.username },
         process.env.JWT_SECRET
